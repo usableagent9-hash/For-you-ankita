@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️ | Birthday Surprise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff4d8d;
+            --secondary: #9c4dff;
+            --accent: #4d79ff;
+            --gold: #ffd166;
+            --light-pink: #ffb6d9;
+            --light-purple: #d9c5ff;
+            --white: #fff9fb;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-light: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --shadow-lg: 0 20px 50px rgba(0,0,0,0.2);
+            --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-light);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Enhanced Background */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.3;
+            animation: float 20s infinite linear;
+            filter: drop-shadow(0 0 5px rgba(255, 77, 141, 0.3));
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatUp 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+
+        /* Container */
+        .scene-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+            display: none;
+        }
+
+        .scene-container.active {
+            opacity: 1;
+            transform: translateY(0);
+            display: flex;
+        }
+
+        /* Navigation Dots - Enhanced */
+        .nav-dots {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-dot.active {
+            background: var(--gradient);
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255, 77, 141, 0.5);
+        }
+
+        .nav-dot:hover {
+            transform: scale(1.2);
+        }
+
+        /* Music Control */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 77, 141, 0.3);
+        }
+
+        .music-control i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        /* ===== SCENE 1: WELCOME ===== */
+        #scene1 {
+            background: linear-gradient(135deg, rgba(255, 175, 189, 0.9), rgba(255, 195, 160, 0.9));
+        }
+
+        #scene1 .title {
+            font-family: 'Sacramento', cursive;
+            font-size: 5.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            animation: titleGlow 3s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 5px rgba(255, 77, 141, 0.3)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 77, 141, 0.6)); }
+        }
+
+        #scene1 .subtitle {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 300;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .heart-loading-container {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            margin: 40px auto;
+            filter: drop-shadow(0 0 10px rgba(255, 77, 141, 0.3));
+        }
+
+        .heart-beat {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: heartbeat 1.5s infinite;
+            z-index: 2;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: pulse 2s infinite;
+        }
+
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.15); }
+        }
+
+        @keyframes pulse {
+            0% { width: 120px; height: 120px; opacity: 1; }
+            100% { width: 250px; height: 250px; opacity: 0; }
+        }
+
+        .loading-text {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            text-align: center;
+            margin-top: 30px;
+            animation: fadeInOut 2s infinite;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* ===== SCENE 2: PASSWORD ===== */
+        .password-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow-lg);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: var(--transition);
+        }
+
+        .password-card:hover {
+            transform: translateY(-5px) rotateX(2deg);
+            box-shadow: var(--shadow-lg), 0 0 40px rgba(255, 77, 141, 0.2);
+        }
+
+        .password-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+        }
+
+        .password-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(255, 77, 141, 0.1), transparent 30%);
+            animation: rotate 4s linear infinite;
+            z-index: 0;
+        }
+
+        .password-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: bounce 2s infinite;
+        }
+
+        .password-card h2 {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-family: 'Dancing Script', cursive;
+            position: relative;
+            z-index: 1;
+        }
+
+        .password-card p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
+        }
+
+        .password-input-container {
+            position: relative;
+            margin-bottom: 25px;
+            z-index: 1;
+        }
+
+        #passInput {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #e6e6e6;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            background: white;
+            transition: var(--transition);
+            text-align: center;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        #passInput:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 77, 141, 0.1), inset 0 2px 10px rgba(0,0,0,0.05);
+            outline: none;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        #submitBtn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        #submitBtn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        #submitBtn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        #submitBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 77, 141, 0.4);
+        }
+
+        .hint {
+            margin-top: 20px;
+            color: #999;
+            font-size: 1rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== SCENE 3: CHAPTER 1 ===== */
+        .book-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+        }
+
+        .book-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .book-card h2 {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            font-size: 3rem;
+            font-family: 'Sacramento', cursive;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .book-content {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .chapter-title {
+            color: var(--secondary);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .love-paragraph {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #555;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 182, 217, 0.1), rgba(217, 197, 255, 0.1));
+            border-radius: 20px;
+            border-left: 5px solid var(--primary);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-paragraph::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        .love-paragraph.show {
+            display: block;
+            animation: paragraphAppear 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .action-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 20px auto;
+            box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 77, 141, 0.4);
+        }
+
+        .action-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .panda-float {
+            position: fixed;
+            font-size: 3rem;
+            opacity: 0.5;
+            z-index: -1;
+            animation: floatAround 20s infinite linear;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.1));
+        }
+
+        /* ===== SCENE 4: TIMER ===== */
+        .timer-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow-lg);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+        }
+
+        .timer-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s infinite;
+        }
+
+        .timer-card h2 {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            font-size: 2.8rem;
+            font-family: 'Sacramento', cursive;
+        }
+
+        .timer-card p {
+            color: #666;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            font-size: 1.3rem;
+        }
+
+        #timer {
+            font-size: 5rem;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: transparent;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            margin: 30px 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            letter-spacing: 5px;
+        }
+
+        .timer-message {
+            font-size: 1.4rem;
+            color: #777;
+            margin-top: 30px;
+            line-height: 1.7;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .timer-progress {
+            width: 100%;
+            height: 8px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 4px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .timer-progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 1s linear;
+            border-radius: 4px;
+        }
+
+        /* ===== SCENE 5: VIDEO ===== */
+        .video-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            width: 95%;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+        }
+
+        .video-header {
+            margin-bottom: 35px;
+        }
+
+        .video-header h2 {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3.5rem;
+            font-family: 'Sacramento', cursive;
+            margin-bottom: 15px;
+        }
+
+        .video-header p {
+            color: #777;
+            font-size: 1.4rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        #surpriseVideo {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            border: 3px solid white;
+            transition: var(--transition);
+        }
+
+        #surpriseVideo:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .video-message {
+            margin-top: 25px;
+            color: #777;
+            font-size: 1.3rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Animations */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(30px, -30px) rotate(90deg) scale(1.1); }
+            50% { transform: translate(0, -60px) rotate(180deg) scale(1); }
+            75% { transform: translate(-30px, -30px) rotate(270deg) scale(0.9); }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+        }
+
+        @keyframes paragraphAppear {
+            from { opacity: 0; transform: translateY(50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            #scene1 .title { font-size: 4.5rem; }
+            .book-card, .password-card, .timer-card, .video-container { padding: 40px 30px; }
+            .video-header h2 { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            #scene1 .title { font-size: 3.5rem; }
+            #scene1 .subtitle { font-size: 1.8rem; }
+            .heart-beat { font-size: 5rem; }
+            .heart-loading-container { width: 200px; height: 200px; }
+            .password-card h2, .book-card h2, .timer-card h2 { font-size: 2.2rem; }
+            .video-header h2 { font-size: 2.5rem; }
+            #timer { font-size: 4rem; }
+            .nav-dots { bottom: 20px; padding: 12px 20px; }
+            .music-control { top: 15px; right: 15px; width: 45px; height: 45px; }
+        }
+
+        @media (max-width: 480px) {
+            #scene1 .title { font-size: 2.8rem; }
+            #scene1 .subtitle { font-size: 1.5rem; }
+            .heart-beat { font-size: 4rem; }
+            .heart-loading-container { width: 180px; height: 180px; }
+            .book-card, .password-card, .timer-card { padding: 30px 20px; }
+            .love-paragraph { padding: 20px; font-size: 1.1rem; }
+            .video-header h2 { font-size: 2.2rem; }
+            #timer { font-size: 3.5rem; letter-spacing: 3px; }
+            .nav-dots { bottom: 15px; }
+            .music-control { width: 40px; height: 40px; }
+            .music-control i { font-size: 20px; }
+        }
+
+        /* Special Date */
+        .special-date {
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Dancing Script', cursive;
+            animation: pulse 2s infinite;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Background Effects -->
+    <div class="bg-effects" id="bgEffects"></div>
+
+    <!-- Music Control -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-volume-up"></i>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <div class="nav-dot active" data-scene="1"></div>
+        <div class="nav-dot" data-scene="2"></div>
+        <div class="nav-dot" data-scene="3"></div>
+        <div class="nav-dot" data-scene="4"></div>
+        <div class="nav-dot" data-scene="5"></div>
+    </div>
+
+    <!-- Scene 1: WELCOME SCREEN -->
+    <div class="scene-container active" id="scene1">
+        <h1 class="title">Happy Birthday Rajita! 🎂</h1>
+        <p class="subtitle">A magical surprise awaits you...</p>
+        
+        <div class="special-date">To My Beautiful Rajita 💖</div>
+        
+        <div class="heart-loading-container">
+            <div class="heart-beat">❤️</div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+        </div>
+        
+        <p class="loading-text">
+            <i class="fas fa-heart" style="color: var(--primary); margin-right: 10px;"></i>
+            Made with all the love in my heart
+        </p>
+    </div>
+
+    <!-- Scene 2: PASSWORD -->
+    <div class="scene-container" id="scene2">
+        <div class="password-card">
+            <div class="password-icon">🔐</div>
+            <h2>Our Secret Code</h2>
+            <p>Enter the password that holds our sweet memories</p>
+            
+            <div class="password-input-container">
+                <input type="text" id="passInput" placeholder="Enter 'rajita' to continue..." autocomplete="off">
+                <div class="input-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+            </div>
+            
+            <button id="submitBtn">
+                <i class="fas fa-lock-open" style="margin-right: 10px;"></i>
+                Unlock Our Story
+            </button>
+            
+            <p class="hint">💡 Hint: It's the name that makes my heart beat faster</p>
+        </div>
+    </div>
+
+    <!-- Scene 3: CHAPTER 1 -->
+    <div class="scene-container" id="scene3">
+        <div class="book-card">
+            <div class="book-icon">📖</div>
+            <h2>Chapter 1: Our Beautiful Journey</h2>
+            
+            <div class="book-content">
+                <div class="chapter-title">
+                    <i class="fas fa-heart" style="color: var(--primary); margin-right: 10px;"></i>
+                    Click to read what's in my heart
+                </div>
+                
+                <button class="action-btn" id="openNoteBtn">
+                    <i class="fas fa-envelope-open-text" style="margin-right: 10px;"></i>
+                    Open My Heart's Letter
+                </button>
+                
+                <div class="love-paragraph" id="loveParagraph">
+                    My Dearest Rajita,<br><br>
+
+                    On your special day, I want you to know how incredibly grateful I am to have you in my life. 
+                    You're not just a beautiful soul; you're the light that brightens my darkest days.<br><br>
+
+                    Every moment with you feels like a precious gift. Your smile, your laughter, 
+                    and the way you care for others - all of these make you the amazing person you are.<br><br>
+
+                    Today, I celebrate you - your kindness, your strength, your dreams, 
+                    and everything that makes you uniquely Rajita. May this year bring you 
+                    endless joy, success in all your endeavors, and all the happiness you deserve.<br><br>
+
+                    Remember that you are loved more than words can express, and I'm always here for you, 
+                    cheering you on every step of the way.<br><br>
+
+                    Happy Birthday to the most wonderful person I know!<br><br>
+
+                    With all my love,<br>
+                    Always and forever 💖
+                </div>
+                
+                <button class="action-btn" id="surpriseBtn" disabled style="display: none;">
+                    <i class="fas fa-gift" style="margin-right: 10px;"></i>
+                    Prepare Your Surprise 🎁
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 4: TIMER -->
+    <div class="scene-container" id="scene4">
+        <div class="timer-card">
+            <div class="timer-icon">⏳</div>
+            <h2>Almost There, My Love!</h2>
+            <p>Your special surprise is getting ready...</p>
+            
+            <div id="timer">02:00</div>
+            
+            <div class="timer-progress">
+                <div class="timer-progress-bar" id="progressBar"></div>
+            </div>
+            
+            <p class="timer-message">
+                <i class="fas fa-heart" style="color: var(--primary); margin-right: 10px;"></i>
+                Every second brings you closer to something special!
+            </p>
+        </div>
+    </div>
+
+    <!-- Scene 5: VIDEO -->
+    <div class="scene-container" id="scene5">
+        <div class="video-container">
+            <div class="video-header">
+                <h2>For My Beautiful Rajita 💕</h2>
+                <p>A message from my heart to yours on your special day</p>
+            </div>
+            
+            <video id="surpriseVideo" controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='500' viewBox='0 0 900 500'%3E%3Crect width='900' height='500' fill='%23ff85b3'/%3E%3Ctext x='450' y='250' font-family='Arial' font-size='40' fill='white' text-anchor='middle' dominant-baseline='middle'%3E🎬 Your Special Video Loading...%3C/text%3E%3C/svg%3E">
+                <!-- VIDEO URL UPDATED -->
+                <source src="surprise_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <p class="video-message">
+                <i class="fas fa-heart" style="color: var(--primary); margin-right: 10px;"></i>
+                Made with endless love for your special day
+            </p>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <!-- AUDIO URL UPDATED -->
+        <source src="tuning.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // DOM Elements
+        const scenes = document.querySelectorAll('.scene-container');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const passInput = document.getElementById('passInput');
+        const submitBtn = document.getElementById('submitBtn');
+        const openNoteBtn = document.getElementById('openNoteBtn');
+        const loveParagraph = document.getElementById('loveParagraph');
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        const timerDisplay = document.getElementById('timer');
+        const progressBar = document.getElementById('progressBar');
+        const surpriseVideo = document.getElementById('surpriseVideo');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicControl = document.getElementById('musicControl');
+        const bgEffects = document.getElementById('bgEffects');
+
+        // State variables
+        let currentScene = 1;
+        let timerInterval;
+        let timeLeft = 120; // 2 minutes
+        let totalTime = 120;
+        let isMusicPlaying = false;
+        let isMusicMuted = false;
+
+        // Initialize
+        function init() {
+            // Create enhanced background effects
+            createBackgroundEffects();
+            
+            // Set up music control
+            setupMusicControl();
+            
+            // Auto progress to password scene after 4 seconds
+            setTimeout(() => {
+                showScene(2);
+                createConfetti();
+            }, 4000);
+            
+            // Event listeners
+            submitBtn.addEventListener('click', checkPassword);
+            passInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') checkPassword();
+            });
+            
+            passInput.addEventListener('focus', () => {
+                passInput.style.transform = 'scale(1.02)';
+            });
+            
+            passInput.addEventListener('blur', () => {
+                passInput.style.transform = 'scale(1)';
+            });
+            
+            openNoteBtn.addEventListener('click', openNote);
+            surpriseBtn.addEventListener('click', startSurpriseTimer);
+            
+            // Navigation dots
+            navDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const sceneNum = parseInt(this.getAttribute('data-scene'));
+                    if (sceneNum === 3 && currentScene < 3) {
+                        showError("Please enter the password first! ❤️");
+                        return;
+                    }
+                    if (sceneNum === 4 && currentScene < 4) {
+                        showError("Please open the love letter first! 💌");
+                        return;
+                    }
+                    if (sceneNum === 5 && currentScene < 5) {
+                        showError("Please wait for the timer to finish! ⏳");
+                        return;
+                    }
+                    showScene(sceneNum);
+                });
+            });
+            
+            // Video event listeners
+            surpriseVideo.addEventListener('play', function() {
+                if (!isMusicMuted) {
+                    bgMusic.pause();
+                }
+            });
+            
+            surpriseVideo.addEventListener('ended', function() {
+                if (!isMusicMuted) {
+                    bgMusic.play();
+                }
+                showConfettiRain();
+            });
+            
+            // Start background music with interaction
+            document.addEventListener('click', function initMusic() {
+                if (!isMusicPlaying) {
+                    bgMusic.volume = 0.3;
+                    bgMusic.play().then(() => {
+                        isMusicPlaying = true;
+                        musicControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    }).catch(e => {
+                        console.log("Music will play after user interaction");
+                    });
+                    document.removeEventListener('click', initMusic);
+                }
+            });
+        }
+
+        // Create enhanced background effects
+        function createBackgroundEffects() {
+            // Create hearts
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDelay = `${Math.random() * 20}s`;
+                heart.style.fontSize = `${Math.random() * 25 + 20}px`;
+                heart.style.color = `hsl(${Math.random() * 60 + 330}, 100%, 70%)`;
+                bgEffects.appendChild(heart);
+            }
+            
+            // Create bubbles
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.width = `${Math.random() * 40 + 20}px`;
+                bubble.style.height = bubble.style.width;
+                bubble.style.animationDelay = `${Math.random() * 15}s`;
+                bubble.style.background = `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(255,182,217,0.1))`;
+                bgEffects.appendChild(bubble);
+            }
+        }
+
+        // Setup music control
+        function setupMusicControl() {
+            musicControl.addEventListener('click', function() {
+                if (isMusicMuted) {
+                    bgMusic.volume = 0.3;
+                    bgMusic.play();
+                    musicControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    musicControl.style.borderColor = 'var(--primary)';
+                    isMusicMuted = false;
+                } else {
+                    bgMusic.pause();
+                    musicControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    musicControl.style.borderColor = '#999';
+                    isMusicMuted = true;
+                }
+            });
+        }
+
+        // Show specific scene
+        function showScene(sceneNum) {
+            // Hide all scenes
+            scenes.forEach(scene => {
+                scene.classList.remove('active');
+            });
+            
+            // Show target scene
+            const targetScene = document.getElementById(`scene${sceneNum}`);
+            targetScene.classList.add('active');
+            
+            // Update navigation dots
+            navDots.forEach(dot => dot.classList.remove('active'));
+            document.querySelector(`.nav-dot[data-scene="${sceneNum}"]`).classList.add('active');
+            
+            currentScene = sceneNum;
+            
+            // Special effects for specific scenes
+            switch(sceneNum) {
+                case 3:
+                    addPandasToScene3();
+                    createFloatingHearts(15);
+                    break;
+                case 5:
+                    setTimeout(() => {
+                        surpriseVideo.play().catch(e => {
+                            console.log("Video autoplay prevented - user interaction required");
+                        });
+                    }, 1000);
+                    break;
+            }
+        }
+
+        // Add pandas to scene 3
+        function addPandasToScene3() {
+            const scene3 = document.getElementById('scene3');
+            for (let i = 0; i < 8; i++) {
+                const panda = document.createElement('div');
+                panda.className = 'panda-float';
+                panda.innerHTML = '🐼';
+                panda.style.left = `${Math.random() * 100}%`;
+                panda.style.top = `${Math.random() * 100}%`;
+                panda.style.animationDelay = `${Math.random() * 5}s`;
+                panda.style.fontSize = `${Math.random() * 2 + 2.5}rem`;
+                scene3.appendChild(panda);
+            }
+        }
+
+        // Check password
+        function checkPassword() {
+            const password = passInput.value.trim().toLowerCase();
+            
+            if (password === 'rajita' || password === 'rajita ' || password === ' Rajita') {
+                // Success
+                submitBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> Access Granted! 🎉';
+                submitBtn.style.background = 'linear-gradient(45deg, #4CAF50, #8BC34A)';
+                submitBtn.disabled = true;
+                
+                // Success effects
+                createConfetti();
+                createHeartsExplosion();
+                
+                // Play success sound
+                playSuccessSound();
+                
+                // Go to chapter 1 after 1.5 seconds
+                setTimeout(() => {
+                    showScene(3);
+                }, 1500);
+            } else {
+                // Error
+                showError("Incorrect password! Try 'rajita' ❤️");
+                passInput.style.borderColor = '#ff3860';
+                passInput.style.animation = 'shake 0.5s';
+                
+                setTimeout(() => {
+                    passInput.style.borderColor = '#e6e6e6';
+                    passInput.style.animation = '';
+                }, 500);
+            }
+        }
+
+        // Open note
+        function openNote() {
+            // Show paragraph with animation
+            loveParagraph.classList.add('show');
+            
+            // Button transition
+            openNoteBtn.style.opacity = '0';
+            setTimeout(() => {
+                openNoteBtn.style.display = 'none';
+                surpriseBtn.style.display = 'block';
+                setTimeout(() => {
+                    surpriseBtn.style.opacity = '1';
+                    surpriseBtn.disabled = false;
+                }, 100);
+            }, 500);
+            
+            // Add floating hearts
+            createFloatingHearts(20);
+            
+            // Add sparkle effect
+            addSparkleEffect();
+        }
+
+        // Start surprise timer
+        function startSurpriseTimer() {
+            surpriseBtn.disabled = true;
+            surpriseBtn.innerHTML = '<i class="fas fa-hourglass-start" style="margin-right: 10px;"></i>Timer Starting...';
+            surpriseBtn.style.background = 'linear-gradient(45deg, #666, #999)';
+            
+            // Go to timer scene after 1 second
+            setTimeout(() => {
+                showScene(4);
+                startTimer();
+            }, 1000);
+        }
+
+        // Start timer
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                
+                // Update timer display
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                // Update progress bar
+                const progress = ((totalTime - timeLeft) / totalTime) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Visual effects
+                if (timeLeft <= 10) {
+                    timerDisplay.style.animation = 'pulse 0.5s infinite';
+                    if (timeLeft <= 5) {
+                        timerDisplay.style.animation = 'pulse 0.3s infinite';
+                    }
+                }
+                
+                // Time's up
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timerDisplay.textContent = '00:00';
+                    progressBar.style.width = '100%';
+                    
+                    // Celebration effects
+                    createConfetti();
+                    playCelebrationSound();
+                    
+                    // Go to video scene
+                    setTimeout(() => {
+                        showScene(5);
+                    }, 2000);
+                }
+            }, 1000);
+        }
+
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#ff4d8d', '#9c4dff', '#4d79ff', '#ffd166', '#4dffb3'];
+            const shapes = ['❤️', '🎉', '✨', '🌟', '🎊', '💫'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+                    position: fixed;
+                    font-size: ${Math.random() * 20 + 15}px;
+                    top: -50px;
+                    left: ${Math.random() * 100}%;
+                    z-index: 10000;
+                    pointer-events: none;
+                    animation: confettiFall ${Math.random() * 3 + 2}s linear forwards;
+                    opacity: ${Math.random() * 0.8 + 0.2};
+                    transform: rotate(${Math.random() * 360}deg);
+                `;
+                
+                if (Math.random() > 0.5) {
+                    confetti.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
+                } else {
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                }
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // Create hearts explosion
+        function createHeartsExplosion() {
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.style.cssText = `
+                    position: fixed;
+                    font-size: ${Math.random() * 25 + 20}px;
+                    color: #ff4d8d;
+                    top: 50%;
+                    left: 50%;
+                    z-index: 1000;
+                    pointer-events: none;
+                    animation: heartExplode ${Math.random() * 2 + 1}s ease-out forwards;
+                    opacity: 0.8;
+                `;
+                heart.innerHTML = '❤️';
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        // Create floating hearts
+        function createFloatingHearts(count = 10) {
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.style.cssText = `
+                    position: fixed;
+                    font-size: ${Math.random() * 25 + 20}px;
+                    color: hsl(${Math.random() * 60 + 330}, 100%, 65%);
+                    bottom: -50px;
+                    left: ${Math.random() * 100}%;
+                    z-index: 1000;
+                    pointer-events: none;
+                    animation: floatUp ${Math.random() * 5 + 3}s ease-in forwards;
+                    opacity: ${Math.random() * 0.6 + 0.4};
+                    filter: drop-shadow(0 0 5px rgba(255, 77, 141, 0.5));
+                `;
+                heart.innerHTML = '❤️';
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 8000);
+            }
+        }
+
+        // Add sparkle effect
+        function addSparkleEffect() {
+            const sparks = ['✨', '🌟', '💫', '⭐', '⚡'];
+            for (let i = 0; i < 10; i++) {
+                const spark = document.createElement('div');
+                spark.style.cssText = `
+                    position: absolute;
+                    font-size: ${Math.random() * 20 + 15}px;
+                    z-index: 10;
+                    pointer-events: none;
+                    animation: sparkle ${Math.random() * 2 + 1}s ease-out forwards;
+                    opacity: 0;
+                `;
+                spark.innerHTML = sparks[Math.floor(Math.random() * sparks.length)];
+                
+                const rect = loveParagraph.getBoundingClientRect();
+                spark.style.left = `${Math.random() * rect.width}px`;
+                spark.style.top = `${Math.random() * rect.height}px`;
+                
+                loveParagraph.appendChild(spark);
+                
+                setTimeout(() => spark.remove(), 2000);
+            }
+        }
+
+        // Show confetti rain
+        function showConfettiRain() {
+            setInterval(() => {
+                createConfetti();
+            }, 100);
+            
+            setTimeout(() => {
+                clearInterval(window.confettiRainInterval);
+            }, 3000);
+        }
+
+        // Show error message
+        function showError(message) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #ff3860, #ff1493);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(255, 56, 96, 0.3);
+                z-index: 10000;
+                animation: slideIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+                font-weight: 500;
+                max-width: 300px;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            `;
+            toast.innerHTML = `<i class="fas fa-exclamation-circle" style="margin-right: 10px;"></i>${message}`;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+                setTimeout(() => toast.remove(), 400);
+            }, 3000);
+        }
+
+        // Play success sound
+        function playSuccessSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+            oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+            oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+        }
+
+        // Play celebration sound
+        function playCelebrationSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(440 + i * 100, audioContext.currentTime);
+                    
+                    gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.3);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.3);
+                }, i * 100);
+            }
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%) translateY(-20px); opacity: 0; }
+                to { transform: translateX(0) translateY(0); opacity: 1; }
+            }
+            
+            @keyframes slideOut {
+                from { transform: translateX(0) translateY(0); opacity: 1; }
+                to { transform: translateX(100%) translateY(-20px); opacity: 0; }
+            }
+            
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+                20%, 40%, 60%, 80% { transform: translateX(8px); }
+            }
+            
+            @keyframes confettiFall {
+                to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+            }
+            
+            @keyframes heartExplode {
+                0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+                100% { transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) scale(1) rotate(360deg); opacity: 0; }
+            }
+            
+            @keyframes sparkle {
+                0% { transform: scale(0) rotate(0deg); opacity: 0; }
+                50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+                100% { transform: scale(0) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize when page loads
+        window.addEventListener('DOMContentLoaded', init);
+        
+        // Ensure music starts on any interaction
+        document.addEventListener('click', function() {
+            if (!isMusicPlaying && !isMusicMuted) {
+                bgMusic.volume = 0.3;
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    musicControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+                }).catch(e => {
+                    console.log("Music play failed, will try again on next interaction");
+                });
+            }
+        });
+    </script>
+</body>
+</html>
